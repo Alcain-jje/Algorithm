@@ -1,0 +1,38 @@
+def solution(participant, completion):
+
+ 
+    
+    dictionary = {string : participant for i,string in enumerate(completion)}
+   
+
+   
+    seen=[]
+    val=[]
+    for i in dictionary.keys():
+     
+      for c in range(len(a)):
+        #print(dictionary[i][c])
+        #if (i == dictionary[i][c]):
+          #del dictionary[i][c]
+      
+        if (dictionary[i][c] not in completion):
+          #if i not in seen:
+            seen.append(dictionary[i][c])
+        for ii in seen:
+          if ii not in val:
+            val.append(ii)   
+
+    print(val)      
+          
+    
+       
+  
+#a=["marina", "josipa", "nikola", "vinko", "filipa"]
+#b=["josipa", "filipa", "marina", "nikola"]
+#a=["mislav", "mislav", "ana","stanko"]
+#b=["stanko", "ana", "mislav"]
+#a=["leo", "kiki", "eden"]
+#b=["eden", "kiki"]
+a=input().split(",")
+b=input().split(",")
+solution(a,b)
