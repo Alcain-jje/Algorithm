@@ -1,0 +1,14 @@
+def twoSum(a,b):
+  List=[]
+  for i in range(len(a)):
+    for j in range(len(a)-(i+1)):
+      if a[i]+a[i+j+1] == b:
+        List.append(i)
+        List.append(i+j+1)
+  return List
+      
+  
+a=list(map(int,input().split()))
+b=int(input())
+
+print(twoSum(a,b))
