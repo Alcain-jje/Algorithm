@@ -1,0 +1,18 @@
+def solution(array, commands):
+
+    # 배열을 자르기 위해, commands 배열 당 첫번째 값에 -1을 뺀다. (map 함수도 가능해 보인다.)
+    for i in range(0,len(commands)):
+        a=int(commands[i][0])
+        commands[i][0]=a-1
+
+    #commads에 수에 맞게 정렬을 한 뒤, 정렬된 list의 값 중 특정 몇 번째 수를 answer 리스트에 저장한다.
+    answer = []
+    for i in range(0, len(commands)):
+        list=sorted(array[commands[i][0]:commands[i][1]])
+        answer.append(list[commands[i][-1]-1])
+
+    return answer
+
+array=[1,5,2,6,3,7,4]
+commands=[[2,5,3],[4,4,1],[1,7,3]]
+print(solution(array,commands))
