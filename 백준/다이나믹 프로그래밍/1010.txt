@@ -1,0 +1,22 @@
+def solution(left,right):
+    answer=[]
+    for i in range(0,len(left)):
+        lef = 1
+        rig = 1
+        for j in range(0,left[i]):
+            lef= lef * (left[i]-j)
+            rig= rig * (right[i]-j)
+        ans=int(rig/lef)
+        answer.append(ans)
+    for i in answer:
+        print(i)
+
+num=int(input())
+left=[]
+right=[]
+for i in range(0, num):
+    n,k=map(int, input().split())
+    left.append(n)
+    right.append(k)
+
+solution(left,right)
