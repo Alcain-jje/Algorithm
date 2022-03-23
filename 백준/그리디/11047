@@ -1,0 +1,17 @@
+def solution(list,b):
+    list=sorted(list,reverse=True)
+    num=0
+
+    for i in range(len(list)):
+        num += b // list[i]  # 카운트 값에 K를 동전으로 나눈 몫을 더해줌
+        b = b % list[i]
+
+    return num
+
+N, b = map(int, input().split())
+#list=[1,5,10,50,100,500,1000,5000,10000,50000]
+list=[]
+for i in range(N):
+    list.append(int(input()))
+
+print(solution(list,b))
