@@ -1,0 +1,29 @@
+def solution(n, lost, reserve):
+    reserve=sorted(reserve)
+    answer = 0
+    lost2 = []
+    ans = []
+    for k in range(0, len(lost)):
+        if lost[k] in reserve:
+            reserve.remove(lost[k])
+        else:
+            lost2.append(lost[k])
+    for i in range(0, len(reserve)):
+        if reserve[i] - 1 in lost2 and reserve[i] - 1 not in ans:
+            ans.append(reserve[i] - 1)
+        elif reserve[i] + 1 in lost2 and reserve[i] + 1 not in ans:
+            ans.append(reserve[i] + 1)
+        else:
+            pass
+    for j in ans:
+        if j in lost2:
+            lost2.remove(j)
+    answer = n - len(lost2)
+    return answer
+
+
+n = 3
+lost = [3]
+reserve = [1]
+
+print(solution(n, lost, reserve))
