@@ -1,0 +1,16 @@
+import sys
+input = sys.stdin.readline
+
+def solution(N,tester_num,a,b):
+    ans=N
+    for i in tester_num:
+        i -= a
+        if i <0:
+            continue
+        ans += i //b if i % b == 0 else i // b+1
+    return ans
+N = int(input())
+tester_num = list(map(int, input().split()))
+a, b = map(int, input().split())
+
+print(solution(N,tester_num,a,b))
