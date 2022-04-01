@@ -1,0 +1,21 @@
+def sol(sum,li):
+    ans=[]
+    for i in range(0,len(li)-2):
+        for j in range(i+1,len(li)-1):
+            for e in range(j+1,len(li)):
+                if li[i]+li[j]+li[e] > sum:
+                    continue
+                else:
+                    ans.append(li[i]+li[j]+li[e])
+                    #ans= max(ans,li[i]+li[j]+li[e])
+
+    return max(ans)
+
+ab,sum=map(int, input().split())
+li=list(map(int, input().split()))
+
+print(sol(sum,li))
+
+#li=[5,6,7,8,9]
+#li=[93, 181, 245, 214, 315, 36, 185, 138, 216,295]
+#print(len(li))
