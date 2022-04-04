@@ -1,0 +1,11 @@
+from itertools import combinations
+def sol(m,list2):
+    ans=list(combinations(list2,m))
+
+    return len(ans)
+
+n,m=map(int,input().split())
+list2=[]
+for i in range(n):
+    list2.append(i)
+print(sol(m,list2))
