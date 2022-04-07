@@ -1,0 +1,24 @@
+def sol(ans):
+    answer=""
+    for i in range(0, len(ans)):
+        if ans[i] == ans2[0] and ans[i-1] == ans2[1]:
+            if ans[-1] == ans2[1]:
+                pass
+            else:
+                ans.pop(i)
+                ans.pop(i-1)
+                sol(ans)
+                break
+        else:
+            pass
+    if len(ans) == 0:
+        answer="YES"
+    else:
+        answer="NO"
+    return answer
+
+t=int(input())
+ans2=[")","("]
+for i in range(t):
+    ans=list(input())
+    print(sol(ans))
