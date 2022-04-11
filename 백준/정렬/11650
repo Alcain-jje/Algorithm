@@ -1,0 +1,14 @@
+import sys
+input= sys.stdin.readline
+
+a=int(input())
+li=[]
+for i in range(a):
+    aa,bb= map(int, input().split())
+    cc=[aa,bb]
+    li.append(cc)
+    #li.append(bb)
+li=sorted(li)
+
+for i in li:
+    print(*i)
