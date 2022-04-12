@@ -1,0 +1,25 @@
+def sol(a):
+    di = {}
+    setting = set(a)
+    for i in setting:
+        di[i] = a.count(i)
+    all_values = di.values()
+    max_value = max(all_values)
+
+    maxium = 0
+
+    for key, value in di.items():
+        if value > maxium:
+            maxium = value
+            answer = key
+        elif value == max_value:
+            answer='?'
+            break
+        else:
+            pass
+
+    return answer
+
+a=input()
+a=a.upper()
+print(sol(a))
