@@ -1,0 +1,9 @@
+import sys
+input= sys.stdin.readline
+a=int(input())
+li=[list(input().split()) for i in range(a)]
+for i in range(len(li)):
+    li[i][0]=int(li[i][0])
+li.sort(key=lambda x : x[0]) # (나이, 이름)중에서 나이만 비교
+for i in li:
+    print(*i)
