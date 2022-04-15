@@ -1,0 +1,9 @@
+def sol(li):
+    li=sorted(li)
+    li=sorted(li,key=lambda x:(int(x[1])))
+    for i in li: print(*i);
+li=[]
+for i in range(int(input())):
+    aa=list(map(int,input().split()))
+    li.append(aa)
+sol(li)
