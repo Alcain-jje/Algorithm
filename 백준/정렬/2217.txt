@@ -1,0 +1,13 @@
+def sol(li):
+    li=sorted(li)
+    num=li[0]*(len(li))
+    for i in range(1,len(li)):
+        if num < li[i]*(len(li)-i):
+            num = li[i]*(len(li)-i)
+    print(num)
+
+a=int(input())
+li=[]
+for i in range(a):
+    li.append(int(input()))
+sol(li)
