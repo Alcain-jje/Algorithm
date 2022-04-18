@@ -1,0 +1,17 @@
+import sys
+input= sys.stdin.readline
+
+a = int(input())
+li=[]
+for i in range(a):
+    li.append(list(map(int, input().split())))
+li=(sorted(li,key=lambda x : x[0]))
+li=(sorted(li,key=lambda x : x[1]))
+
+last=0
+count=0
+for i,j in li:
+    if i >= last:
+        count += 1
+        last=j
+print(count)
