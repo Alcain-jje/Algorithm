@@ -1,0 +1,23 @@
+#enumerate함수, index와 값을 둘 다 보여줌
+#오름차순 해답
+def sol(li):
+    li.sort()
+    for idx , citation in enumerate(li):
+        if citation >= len(li) - idx:
+            return len(li) - idx
+    return 0
+li=[2,3,6,9]
+print(sol(li))
+
+
+#내림차순 해답
+
+def sol2(li):
+    li=sorted(li,reverse=True)
+    for idx ,citation in enumerate(li):
+        if citation <= idx:
+            return idx
+    return 0
+#li=[3, 4, 5, 11, 15, 16, 17, 18, 19, 20]
+li=[2,3,6,9]
+print(sol2(li))
