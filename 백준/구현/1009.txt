@@ -1,0 +1,22 @@
+import sys
+input = sys.stdin.readline
+num=int(input())
+for i in range(num):
+    a,b=map(int,input().split())
+    aa=a%10
+    if aa == 1 or aa==5 or aa==6:
+        print(aa)
+    elif aa == 0:
+        print(10)
+    elif aa==4 or aa==9:
+        bb=b%2
+        if bb == 0:
+            print(str(a**2)[-1])
+        else:
+            print(str(a**bb)[-1])
+    elif aa==2 or aa==3 or aa==7 or aa==8:
+        bb=b%4
+        if bb==0:
+            print(str(a**4)[-1])
+        else:
+            print(str(a**bb)[-1])
