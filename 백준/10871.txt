@@ -1,0 +1,25 @@
+"""
+# 1번 방법
+a,x=map(int,input().split())
+li=list(map(int,input().split()))
+
+ans=[li[i] for i in range(a) if x > li[i]]
+print(*ans)"""
+
+#2번 방법
+a,x=map(int,input().split())
+#ans=[i for i in list(map(int,input().split())) if x > i]
+print(*[i for i in list(map(int,input().split())) if x > i])
+#print(*ans)
+
+
+"""
+3번 방법
+a,x=map(int,input().split())
+li=list(map(int,input().split()))
+ans=[]
+for i in range(a):
+    if x > li[i]:
+        print(li[i],sep="")
+        ans.append(li[i])
+print(*ans)"""
