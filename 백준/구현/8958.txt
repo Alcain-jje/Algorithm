@@ -1,0 +1,17 @@
+def sol(li):
+    li=list(li)
+    ans=[0]*len(li)
+    for i in range(len(li)):
+        if li[i] == 'O' and i == 0:
+            ans[i] +=1
+        elif li[i] =='O' and li[i-1] =='O':
+            ans[i] = ans[i - 1] + 1
+        elif li[i] =='O' and li[i-1] !='O':
+            ans[i] += 1
+        else:
+            pass
+    return sum(ans)
+
+a=int(input())
+for i in range(a):
+    print(sol(input()))
