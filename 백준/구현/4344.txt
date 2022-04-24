@@ -1,0 +1,11 @@
+a=int(input())
+for i in range(a):
+    ans=0
+    li=list(map(int,input().split()))
+    num=li.pop(0)
+    mean=sum(li)/num
+    for j in li:
+        if j > mean:
+            ans +=1
+    ans=(ans/num)*100
+    print('%.3f'%ans+'%')
