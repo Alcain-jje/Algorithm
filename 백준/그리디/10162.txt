@@ -1,0 +1,10 @@
+a=int(input())
+ran=[300,60,10]
+ans=[0,0,0]
+for i in range(len(ran)):
+    ans[i] += a//ran[i]
+    a = a%ran[i]
+if a != 0:
+    print(-1)
+else:
+    print(*ans)
