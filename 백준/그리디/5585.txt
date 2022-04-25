@@ -1,0 +1,8 @@
+a=int(input())
+a=1000-a
+count=0
+li=[500,100,50,10,5,1]
+for i in range(len(li)):
+    count += a//li[i]
+    a =a%li[i]
+print(count)
