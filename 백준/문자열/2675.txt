@@ -1,0 +1,7 @@
+a=int(input())
+for i in range(a):
+    s,li =map(str, input().split())
+    string=""
+    for j in range(len(li)):
+        string += li[j]*int(s)
+    print(string)
