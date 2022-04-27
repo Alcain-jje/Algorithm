@@ -1,0 +1,15 @@
+a=int(input())
+ans=0
+mon=0
+i=0
+while True:
+    ans+=i
+    if a <= ans:
+        mon= ans - a
+        break
+    else:
+        i = i + 1
+if mon == 0:
+    print(i)
+else:
+    print(i-1)
