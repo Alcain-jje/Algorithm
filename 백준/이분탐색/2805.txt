@@ -1,0 +1,16 @@
+a,target=map(int,input().split())
+li=list(map(int,input().split()))
+
+start, last= 0,max(li)
+
+while start <= last:
+    mid=(start + last)//2
+    ans = 0
+    for i in range(len(li)):
+        if li[i]-mid > 0:
+            ans += li[i]-mid
+    if ans >= target:
+        start = mid + 1
+    else:
+        last = mid -1
+print(last)
