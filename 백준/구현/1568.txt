@@ -1,0 +1,11 @@
+n=int(input())
+ans=0
+b=1
+
+while n >= 1:
+    if n - b < 0:
+        b= 1
+    n = n - b
+    b += 1
+    ans += 1
+print(ans)
