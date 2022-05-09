@@ -1,0 +1,10 @@
+n=input()
+z=' '.join(n.split('1')).split()
+o=' '.join(n.split('0')).split()
+
+if len(z) > len(o):
+    print(len(o))
+elif len(z) < len(o):
+    print(len(z))
+elif len(z)==len(o):
+    print(len(z))
