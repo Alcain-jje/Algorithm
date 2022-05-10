@@ -1,0 +1,15 @@
+n,m=map(int,input().split())
+p=10000000
+o=10000000
+for i in range(m):
+    pack,one=map(int,input().split())
+    p=min(pack,p)
+    o=min(one,o)
+on=o*n # 3 * 4
+if n <= 6 :
+    two=p*1
+    three=p*1
+else:
+    two=p*(n//6)+o*(n%6)
+    three=p*(n//6)+p
+print(min(on,two,three))
