@@ -1,0 +1,60 @@
+#counter를 사용하는 방법
+from collections import Counter
+
+import sys
+input = sys.stdin.readline
+a=int(input())
+data=list(map(int,input().split(' ')))
+b=int(input())
+tar=list(map(int,input().split(' ')))
+
+c=Counter(data)
+
+for m in tar:
+    if m in c:
+        print(c[m],end=" ")
+    else:
+        print('0',end=" ")
+
+
+#해쉬함수 사용
+from sys import stdin
+
+n = stdin.readline().rstrip()
+card = list(map(int,stdin.readline().split()))
+m = stdin.readline().rstrip()
+test = list(map(int,stdin.readline().split()))
+
+hash = {}
+
+for i in card:
+    if i in hash:
+        hash[i]+=1
+    else:
+        hash[i]=1
+
+for j in test:
+    if j in hash:
+        print(hash[j],end=" ")
+    else:
+        print('0',end=" ")
+
+
+#이진탐색 라이브러리 사용
+from bisect import bisect_left, bisect_right
+from sys import stdin
+
+n = stdin.readline().rstrip()
+card = list(map(int,stdin.readline().split()))
+m = stdin.readline().rstrip()
+test = list(map(int,stdin.readline().split()))
+card.sort()
+
+def count_value(a,left_value,right_value):
+    left_index=bisect_left(a,left_value)
+    right_index=bisect_right(a,right_value)
+    return right_index-left_index
+
+for i in range(int(m)):
+    print(count_value(card,test[i],test[i]),end=' ')
+
