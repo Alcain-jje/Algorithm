@@ -1,0 +1,20 @@
+from collections import deque
+n,m=map(int,input().split())
+qq=list(map(int,input().split()))
+li=[int(i) for i in range(1,n+1)]
+queue = deque(li)
+ans=0
+for i in qq:
+    while True:
+        #if queue[0] == i:
+        if queue.index(i) == 0:
+            queue.popleft()
+            break
+        elif queue.index(i) < len(queue)/2:
+            queue.append(queue.popleft())
+            ans+=1
+        else:
+            queue.appendleft(queue.pop())
+            ans+=1
+
+print(ans)
