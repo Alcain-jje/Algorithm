@@ -1,0 +1,12 @@
+n,m=map(int,input().split())
+li_1=[]
+ans=[]
+for i in range(n+m):
+    if i < n:
+        li_1.append(hash(input()))
+    else:
+        a=input()
+        if hash(a) in li_1:
+            ans.append(a)
+print(len(ans))
+print('\n'.join(sorted(ans)))
