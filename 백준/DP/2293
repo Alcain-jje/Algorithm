@@ -1,0 +1,17 @@
+n,k=map(int, input().split())
+c=[int(input()) for i in range(n)]
+dp=[0 for i in range(k+1)]
+dp[0]=1
+
+for i in c:
+    for j in range(i,k+1):
+        if j-i >=0:
+            dp[j] += dp[j-i]
+print(dp[k])
+
+#동적계획법(DP)는 전체의 문제를 부분 문제로 잘 나누었는지 확인해야한다.
+#부분 문제로 해결한 결과값을 메모리에 저장한다. 
+
+#1. 가치의 합이 k=10원이 되는 경우의 수를 구한다.
+#2. 부분문제로 줄여 가치의 합이 (1<= i <=k)원이 되는 경우의 수를 구한다.
+#3. 한번 더 줄여 특정 동전을 썼을 때 가치의 합이 i가 되는 경우의 수를 구한다. 
