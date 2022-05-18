@@ -1,0 +1,18 @@
+a=int(input())
+li=list(map(int,input().split()))
+li.append(0)
+ans=list(map(int,input().split()))
+answer=li[0]
+cost=[]
+big=10000
+for i in range(1,len(ans)):
+    if i == len(ans)-1:
+        cost.append(ans[i-1]*answer)
+        break
+    if ans[i-1] <= ans[i]:
+        answer+=li[i]
+        ans[i-1],ans[i]=ans[i],ans[i-1]
+    else:
+        cost.append(ans[i-1]*answer)
+        answer=li[i]
+print(sum(cost))
