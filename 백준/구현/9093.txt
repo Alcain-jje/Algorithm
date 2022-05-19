@@ -1,0 +1,5 @@
+a=int(input())
+for i in range(a):
+    ans=input().split(' ')
+    for j in ans:
+        print(j[::-1],end=" ")
