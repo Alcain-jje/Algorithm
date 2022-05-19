@@ -1,0 +1,10 @@
+a=int(input())
+for i in range(a):
+    m,n,b=map(int,input().split())
+    if b%m == 0:
+        first = m
+        last=b//m
+    else:
+        first=b%m
+        last=(b//m)+1
+    print(f'{first * 100 + last}')
