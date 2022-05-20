@@ -1,0 +1,50 @@
+#1번 딕셔너리 풀이
+
+x={}
+y={}
+for i in range(3):
+    a,b=map(int,input().split())
+    if b in y:
+        y[b] +=1
+    else:
+        y[b] = 1
+    if a in x:
+        x[a] +=1
+    else:
+        x[a]=1
+xx = {v:k for k,v in x.items()}
+yy ={v:k for k,v in y.items()}
+print(xx.get(1),yy.get(1))
+
+
+#2번 리스트 스택활용풀이
+
+x=[]
+y=[]
+for i in range(3):
+    a,b=map(int,input().split())
+    if a in x:
+        x.remove(a)
+    else:
+        x.append(a)
+    if b in y:
+        y.remove(b)
+    else:
+        y.append(b)
+print(*x,*y)
+
+
+#3번 count 쓰기
+
+x=[]
+y=[]
+for i in range(3):
+    a,b=map(int,input().split())
+    x.append(a)
+    y.append(b)
+for i in range(3):
+    if x.count(x[i])== 1:
+        x4=x[i]
+    if y.count(y[i]) == 1:
+        y4=y[i]
+print(x4,y4)
