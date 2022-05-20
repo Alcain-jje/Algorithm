@@ -1,0 +1,5 @@
+a=input()
+li=[]
+for i in range(len(a)):
+    li.append(a[i:])
+print('\n'.join(sorted(li)))
