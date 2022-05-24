@@ -1,0 +1,19 @@
+from collections import Counter
+import sys
+input = sys.stdin.readline
+
+a=int(input().rstrip())
+li=[]
+num=0
+for i in range(a):
+    li.append(int(input().rstrip()))
+
+li=sorted(li)
+print(round(sum(li)/a))
+print(li[a//2])
+cnt_li = Counter(li).most_common()
+if len(cnt_li) > 1 and cnt_li[0][1]==cnt_li[1][1]: #최빈값이 오래걸리기에, counter 활용
+    print(cnt_li[1][0])
+else:
+    print(cnt_li[0][0])
+print(abs(li[-1]-li[0]))
