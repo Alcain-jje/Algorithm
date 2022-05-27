@@ -1,0 +1,13 @@
+ans=int(input())
+num=ans
+a=1
+answer=0
+for i in range(1,num+1):
+    a *= i
+a=str(a)[::-1]
+for i in range(len(a)):
+    if a[i] == '0':
+        answer+=1
+    else:
+        break
+print(answer)
