@@ -1,0 +1,12 @@
+li=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+change=["D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","A","B","C"]
+
+dic={}
+for i in range(len(li)):
+    dic[change[i]]=li[i]
+#print(dic)
+ans=[]
+a=input()
+for i in a:
+    ans.append(dic[i])
+print(''.join(ans))
