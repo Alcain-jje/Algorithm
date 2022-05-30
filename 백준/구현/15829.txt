@@ -1,0 +1,7 @@
+a=int(input())
+ans=0
+li=[i for i in input()]
+for i in range(len(li)):
+    num=((ord(li[i])-96)*(31**i))
+    ans+=num
+print(ans%1234567891)
