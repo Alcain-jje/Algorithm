@@ -1,0 +1,52 @@
+"""
+#1번풀이
+import sys
+input = sys.stdin.readline
+
+n=10000
+a=[False,False]+[True]*(n-1)
+prime=[]
+
+for i in range(n):
+    if a[i]:
+        prime.append(i)
+        for j in range(2*i,n+1,i):
+            a[j]=False
+
+b=int(input())
+c=int(input())
+ans=[]
+for i in range(b,c+1):
+    if i in prime:
+        ans.append(i)
+if len(ans) == 0:
+    print(-1)
+else:
+    print(sum(ans))
+    print(ans[0])
+"""
+
+
+#2번 풀이
+import sys
+input = sys.stdin.readline
+
+a=int(input())
+b=int(input())
+
+li=[]
+for i in range(a,b+1):
+    error = 0
+    if i > 1:
+        for j in range(2,i):
+            if i % j == 0:
+                error+=1
+                break
+        if error == 0:
+            li.append(i)
+
+if len(li) == 0:
+    print(-1)
+else:
+    print(sum(li))
+    print(li[0])
