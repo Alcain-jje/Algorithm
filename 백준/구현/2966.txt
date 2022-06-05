@@ -1,0 +1,46 @@
+#1번
+san=['A','B','C']
+chan=['B','A','B','C']
+hun=['C','C','A','A','B','B']
+
+dic={'Adrian':0,'Bruno':0,'Goran':0}
+a=int(input())
+b=input()
+for i in range(a):
+    s=i%3
+    c=i%4
+    h=i%6
+    if b[i] == san[s]:
+        dic['Adrian']+=1
+    if b[i] == chan[c]:
+        dic['Bruno'] += 1
+    if b[i] == hun[h]:
+        dic['Goran'] += 1
+#print(dic)
+value=list(dic.values())
+a=max(value)
+print(max(value))
+
+for i,j in dic.items():
+    if dic[i] == a:
+        print(i)
+"""
+#2번
+n = int(input())
+exam = input()
+a = ['ABC', 'BABC', 'CCAABB']
+i_d = ["Adrian", "Bruno", "Goran"]
+result = [0, 0, 0]
+
+for k in range(3):
+    j = 0
+    for i in range(n):
+        if j == len(a[k]):
+            j = 0
+        if a[k][j] == exam[i]:
+            result[k] += 1
+        j +=1
+print(max(result))
+for i in range(3):
+    if max(result) == result[i]:
+        print(i_d[i])"""
