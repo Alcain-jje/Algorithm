@@ -1,0 +1,51 @@
+"""
+#1번 재귀함수 풀이
+def sol(a):
+    for i in range(0, len(prime) - a):
+        if prime[i] + prime[i + a] == num:
+            return prime[i], prime[i + a]
+    else:
+        a=a+1
+        return sol(a)
+
+n=10000
+sosu=[False,False]+[True]*(n-1)
+prime=[]
+for i in range(n+1):
+    if sosu[i]:
+        prime.append(i)
+        for j in range(2*i,n+1,i):
+            sosu[j]=False
+
+n=int(input())
+for i in range(n):
+    num=int(input())
+    a = 0
+    print(*sol(a))
+
+"""
+
+#2번 반복문 풀이
+n=10000
+sosu=[False,False]+[True]*(n-1)
+prime=[]
+for i in range(n+1):
+    if sosu[i]:
+        prime.append(i)
+        for j in range(2*i,n+1,i):
+            sosu[j]=False
+
+n=int(input())
+for i in range(n):
+    num=int(input())
+    flag =0
+    a=0
+    while True:
+        if flag != 0:
+            break
+        for i in range(0, len(prime)-a):
+            if prime[i] + prime[i+a] == num:
+                flag+=1
+                print(prime[i],prime[i+a])
+                break
+        a+=1
