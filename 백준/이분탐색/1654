@@ -1,0 +1,16 @@
+a,b=map(int,input().split())
+li=[]
+for i in range(a):
+    li.append(int(input()))
+start, last= 1,max(li)
+
+while start <= last:
+    mid=(start+last)//2
+    ans=0
+    for i in range(len(li)):
+        ans+=li[i] // mid
+    if ans < b:
+        last = mid -1
+    else:
+        start = mid+1
+print(last)
