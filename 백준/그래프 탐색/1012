@@ -1,0 +1,38 @@
+from collections import deque
+dx = [0,0,1,-1]
+dy = [1,-1,0,0]
+
+def bfs(graph,i,j):
+    queue = deque()
+    queue.append((i,j))
+    graph[i][j]=0
+
+    while queue:
+        x,y=queue.popleft()
+        for i in range(4):
+            nx=x+dx[i]
+            ny=y+dy[i]
+            if 0 <= nx < a and 0 <= ny < b:
+                if graph[nx][ny] == 1:
+                    graph[nx][ny] = 0
+                    queue.append((nx, ny))
+            else:
+                continue
+    #return
+
+num=int(input())
+for _ in range(num):
+    cnt=0
+    a,b,c=map(int,input().split())
+    li=[[0]*b for i in range(a)]
+
+    for i in range(c):
+        k,l=map(int,input().split())
+        li[k][l] = 1
+
+    for i in range(a):
+        for j in range(b):
+            if li[i][j]==1:
+                bfs(li,i,j)
+                cnt+=1
+    print(cnt)
