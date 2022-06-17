@@ -1,0 +1,9 @@
+a=int(input())
+for i in range(a):
+    num=[]
+    li=list(map(int,input().split()))
+    li=sorted(li[1:],reverse=True)
+    for j in range(0,len(li)-1):
+        num.append(li[j]-li[j+1])
+    print('Class',(i+1))
+    print('Max {}, Min {}, Largest gap {}'.format(li[0],li[-1],max(num)))
