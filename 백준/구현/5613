@@ -1,0 +1,13 @@
+a= int(input())
+
+while True:
+    op=input()
+    if op == '=':
+        break
+    n=int(input())
+    if op == '+': a+=n;
+    elif op == '-': a -= n;
+    elif op == '*': a *= n;
+    if op == '/': a //= n;
+
+print(a)
