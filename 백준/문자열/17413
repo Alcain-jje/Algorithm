@@ -1,0 +1,70 @@
+#1번
+a=input()
+stack=[]
+ans=[]
+str=''
+non_str=''
+for i in range(len(a)):
+    if a[i] == '<':
+        if non_str == '':
+            stack.append('<')
+            str+='<'
+        else:
+            ans.append(non_str)
+            non_str=''
+            stack.append('<')
+            str+='<'
+    elif a[i] == '>':
+        stack=[]
+        str+='>'
+        ans.append(str)
+        str=""
+    elif len(stack) == 1:
+        str+=a[i]
+    elif len(stack) == 0:
+        if a[i] == ' ':
+            ans.append(non_str)
+            ans.append(' ')
+            non_str = ''
+        elif i == len(a)-1:
+            non_str += a[i]
+            ans.append(non_str)
+        else:
+            non_str+=a[i]
+
+if '<' not in a:
+    ans=a.split()
+    for i in range(len(ans)):
+        print(ans[i][::-1],end=" ")
+else:
+    for i in range(len(ans)):
+        if ans[i][0] == '<':
+            print(ans[i],end="")
+        else:
+            print(ans[i][::-1],end="")
+            
+
+#2번
+import sys
+input=sys.stdin.readline
+word = list(input())
+
+i=0
+start=0
+
+while i < len(word):
+    if word[i] == '<':
+        i+=1
+        while word[i] != '>':
+            i+=1
+        i+=1
+    elif word[i].isalnum():
+        start=i
+        while i < len(word) and word[i].isalnum():
+            i+=1
+        tmp=word[start:i]
+        tmp.reverse()
+        word[start:i]=tmp
+    else:
+        i+=1
+print("".join(word))
