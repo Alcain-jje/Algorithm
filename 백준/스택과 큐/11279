@@ -1,0 +1,30 @@
+#1번 최대 힙
+import heapq
+import sys
+input= sys.stdin.readline
+a=int(input())
+heap = []
+for i in range(a):
+    b=int(input())
+    if b == 0 and heap:
+        print(heapq.heappop(heap)[1])
+    elif b == 0:
+        print(0)
+    elif b !=0:
+        heapq.heappush(heap, (-b, b))
+
+
+#2번
+import heapq
+import sys
+a=int(input())
+heap=[]
+for _ in range(a):
+    num=int(sys.stdin.readline())
+    if num!= 0:
+        heapq.heappush(heap, (-num))
+    else:
+        try:
+            print(-1*heapq.heappop(heap))
+        except:
+            print(0)
