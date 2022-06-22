@@ -1,0 +1,10 @@
+import sys
+input=sys.stdin.readline
+a=int(input())
+dic={}
+li=list(map(int,input().split()))
+com=sorted(list(set(li)))
+dic={com[i] : i for i in range(len(com))}
+
+for i in range(len(li)):
+    print(dic[li[i]],end=" ")
