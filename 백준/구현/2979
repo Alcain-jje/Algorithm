@@ -1,0 +1,38 @@
+#1번 리스트 활용 풀이
+li=[0]*100
+a,b,c=map(int,input().split())
+for i in range(3):
+    k,l=map(int,input().split())
+    for j in range(k,l):
+        li[j]+=1
+ans=0
+for i in range(len(li)):
+    if li[i] == 1:
+        ans+=li[i]*a
+    elif li[i] == 2:
+        ans+=li[i]*b
+    elif li[i] == 3:
+        ans+=li[i]*c
+    else:
+        pass
+print(ans)
+
+
+#2번 딕셔너리 풀이
+import collections
+
+a,b,c=map(int,input().split())
+dic=collections.defaultdict(int)
+for i in range(3):
+    k,l=map(int,input().split())
+    for j in range(k,l):
+        dic[j]+=1
+ans=0
+for i,j in dic.items():
+    if j == 1:
+        ans+=j*a
+    elif j == 2:
+        ans+=j*b
+    elif j == 3:
+        ans+=j*c
+print(ans)
