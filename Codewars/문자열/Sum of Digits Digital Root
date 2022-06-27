@@ -1,0 +1,25 @@
+
+#1번
+def digital_root(a):
+    ans=0
+    if a > 9:
+        for i in str(a):
+            ans+=int(i)
+        return digital_root(int(ans))
+    else:
+        return a
+a=int(input())
+print(digital_root(a))"""
+
+
+#2번 clever 풀이
+def digital_root(n):
+    return n%9 or n and 9
+    #0은 false 그외에 수는 true
+    #n이 0일때는 or 조건으로 둘다 0이라 0출력
+    #n이 9로 나눠지는 수인경우 9로 출력하기 위해 and 9를 명시
+print(digital_root(999999999999))
+
+#3번 best 풀이
+def digital_root(n):
+    return n if n <10 else digital_root(sum(map(int,str(n))))
