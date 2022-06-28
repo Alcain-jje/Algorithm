@@ -1,3 +1,4 @@
+#1번
 import math
 def is_square(n):
     if n == -1:
