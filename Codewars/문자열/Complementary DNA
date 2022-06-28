@@ -1,0 +1,48 @@
+#1번
+def DNA_strand(dna):
+    str=""
+    for i in dna:
+        if i =='A':
+            str+='T'
+        elif i == 'T':
+            str += 'A'
+        elif i == 'C':
+            str += 'G'
+        elif i == 'G':
+            str += 'C'
+    return str
+
+dna="GTAT"
+print(DNA_strand(dna))
+
+
+#2번
+def DNA_strand(dna):
+    dna=list(dna)
+    for i in range(len(dna)):
+        if dna[i] =='A':
+            dna[i]='T'
+        elif dna[i] == 'T':
+            dna[i] = 'A'
+        elif dna[i] == 'C':
+            dna[i] = 'G'
+        elif dna[i] == 'G':
+            dna[i] = 'C'
+    return ''.join(dna)
+
+dna="ATTGC"
+print(DNA_strand(dna))
+
+
+
+#clever 풀이 응용
+def DNA_strand(dna):
+    mydict = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'}
+    return dna.translate(dna.maketrans(mydict))
+
+print(DNA_strand("ATTGC"))
+
+#Best 풀이
+pairs = {'A':'T','T':'A','C':'G','G':'C'}
+def DNA_strand(dna):
+    return ''.join([pairs[x] for x in dna])
