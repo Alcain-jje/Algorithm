@@ -1,0 +1,35 @@
+#경우의 수로 푸는 문제
+#EX) a종류 3벌 b종류 2벌이라면 아무것도 선택안하는 경우 1가지를 합해서 4X3=12가 된다.
+#3가지 모두 선택 안하는 경우 하나를 빼면 12 -1 = 11이 된다. 이를 응용한다.
+
+#1번 list, Counter 활용 풀이 148ms
+from collections import Counter
+n=int(input())
+for i in range(n):
+    li = []
+    a=int(input())
+    for j in range(a):
+        str=input().split()
+        li.append(str[1])
+    ans=Counter(li)
+    num=1
+    for k in ans:
+        num*=ans[k]+1
+    print(num-1)
+    
+    
+#2번 딕셔너리 활용 116ms
+n=int(input())
+for i in range(n):
+    dic={}
+    a=int(input())
+    for j in range(a):
+        str=input().split()
+        if str[1] in dic:
+            dic[str[1]] +=1
+        else:
+            dic[str[1]]=1
+    num=1
+    for k in dic:
+        num*=dic[k]+1
+    print(num-1)
