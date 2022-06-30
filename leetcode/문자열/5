@@ -1,0 +1,63 @@
+#1번 투포인터 활용 (316ms) max 함수 이용
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def expand(left: int, right: int) -> str:
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -=1
+                right += 1
+            return s[left+1:right]
+
+        if len(s) < 2 or s == s[::-1]:
+            return s
+
+        result = ""
+
+        for i in range(len(s) - 1):
+            result = max(result,
+                         expand(i, i + 1),
+                         expand(i, i + 2),
+                         key=len)
+        return result
+
+
+#2번 투포인터 활용 (1404ms) 반복문으로 비교하여 큰 값 저장
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def expand(left: int, right: int) -> str:
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -=1; right += 1
+            return s[left+1:right]
+        res=""
+        for i in range(len(s)):
+            tmp=expand(i,i)
+            if len(tmp) > len(res):
+                res=tmp
+            tmp=expand(i,i+1)
+            if len(tmp) > len(res):
+                res=tmp
+        return res
+
+s = "orod"
+sol = Solution()
+print(sol.longestPalindrome(s))
+
+
+
+#DP로 풀기. (7794ms,,)
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        dp = [[False] * len(s) for _ in range(len(s))]
+        for i in range(len(s)):
+            dp[i][i]=True
+        ans=s[0]
+        for j in range(len(s)):
+            for i in range(j):
+                if s[i] == s[j] and (dp[i+1][j-1] or j == i+1):
+                    dp[i][j] = True
+                    if j-i+1 > len(ans):
+                        ans=s[i:j+1]
+        return ans
+
+s = "orod"
+sol = Solution()
+print(sol.longestPalindrome(s))
