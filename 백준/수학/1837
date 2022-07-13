@@ -1,0 +1,31 @@
+
+# 1번 k-1까지 나누기
+p,k=map(int,input().split())
+flag=1
+for i in range(2,k):
+    if p % i == 0:
+        print('BAD',i)
+        flag-=1
+        break
+if flag:
+    print('GOOD')
+    
+
+# 2번 에라토스테네스의 체를 활용
+p,k=map(int,input().split())
+
+prime=[False,False] + [True] * (k-2)
+for i in range(2,int(k**0.5)+1):
+    if prime[i]:
+        for j in range(i+i,k,i):
+            prime[j]=False
+flag=True
+for i in range(2,k):
+    if prime[i]:
+        if p%i == 0:
+            flag=False
+            break
+if flag:
+    print('GOOD')
+else:
+    print('BAD',i)
