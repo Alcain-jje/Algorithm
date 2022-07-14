@@ -1,0 +1,36 @@
+#내 풀이
+
+import sys
+input=sys.stdin.readline
+stack=[]
+s=input()
+s=s.replace("()",".")
+ans=0
+for i in s:
+    if i =='(':
+        stack.append(i)
+    elif i =='.':
+        ans+=len(stack)
+    elif i == ')':
+        stack.pop()
+        ans+=1
+print(ans)
+
+# 다른 풀이
+import sys
+input=sys.stdin.readline
+
+s=list(input().rstrip())
+ans=0
+stack=[]
+for i in range(len(s)):
+    if s[i] == "(":
+        stack.append('(')
+    else:
+        if s[i-1] == "(":
+            stack.pop()
+            ans+=len(stack)
+        else:
+            stack.pop()
+            ans+=1
+print(ans)
