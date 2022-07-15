@@ -1,0 +1,43 @@
+# 내 풀이
+# EOF 단축키 ctrl+z or ctrl+d
+import sys
+input = sys.stdin.read #긴 문자들을 입력받아야 할 때 사용한다.
+sentence=input().replace("\n", "").replace(" ", "") # 공백 제거
+a=set(sentence)
+dic={}
+for i in a:
+     dic[i]=sentence.count(i)
+li=[k for k,v in dic.items() if max(dic.values()) == v]
+print("".join(map(str,sorted(li))))
+
+
+# 다른 풀이 1
+import sys
+input = sys.stdin.read
+
+s = input().replace("\n", "").replace(" ", "")
+c = [0] * 26
+for i in s:
+    c[ord(i) - 97] += 1
+
+maxx = max(c)
+r = []
+for i in range(len(c)):
+    if c[i] == maxx:
+        r.append(chr(i + 97))
+
+r.sort()
+print(*r, sep="")
+
+
+# 다른 풀이 2
+import sys
+input=sys.stdin.read
+lines=input()
+alphabet=[0 for _ in range(26)]
+for line in lines:
+    if line.islower():
+        alphabet[ord(line)-97]+=1
+for i in range(26):
+    if alphabet[i] == max(alphabet):
+        print(chr(i+97),end="")
