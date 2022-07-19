@@ -36,9 +36,9 @@ card=list(map(int,input().split()))
 
 answer_list=[0]*b
 
-san_set=set(san)
+san_set=set(san) 
 for i in range(b):
-    if card[i] in san_set:
+    if card[i] in san_set:  # set에서 in 연산은 o(1)이 걸린다, (list는 o(n)이 걸림)
         answer_list[i] = 1
 
 print(' '.join(map(str,answer_list)))
