@@ -1,0 +1,44 @@
+
+# 내 풀이
+a=int(input())
+san=list(map(int,input().split()))
+san.sort()
+b=int(input())
+card=list(map(int,input().split()))
+
+def s(ans):
+    start = 0
+    last = a-1
+    while start <= last:
+        mid=(start+last)//2
+        if ans==san[mid]:
+            return True
+        elif san[mid] < ans:
+            start=mid+1
+        else:
+            last=mid-1
+
+for i in range(b):
+    if s(card[i]):
+        print(1,end=" ")
+    else:
+        print(0,end=" ")
+
+
+# 다른 풀이
+import sys
+input=sys.stdin.readline
+
+a=int(input())
+san=list(map(int,input().split()))
+b=int(input())
+card=list(map(int,input().split()))
+
+answer_list=[0]*b
+
+san_set=set(san)
+for i in range(b):
+    if card[i] in san_set:
+        answer_list[i] = 1
+
+print(' '.join(map(str,answer_list)))
