@@ -1,0 +1,31 @@
+# 조합을 이용한 풀이
+from itertools import combinations
+while True:
+    li=list(map(int, input().split()))
+    if li[0] == 0:
+        break
+    lotto=list(combinations(li[1:], 6))
+    for i in lotto:
+        print(*i)
+    print()
+    #print("\n".join(map(str,lotto)))
+
+# 재귀 dfs를 이용한 풀이
+def dfs(depth,idx):
+    if depth == 6:
+        print(*out)
+        return
+    for i in range(idx,k):
+        out.append(S[i])
+        dfs(depth+1,i+1)
+        out.pop()
+
+while True:
+    arr=list(map(int,input().split()))
+    k=arr[0]
+    S=arr[1:]
+    out=[]
+    dfs(0,0)
+    if k == 0:
+        exit()
+    print()
