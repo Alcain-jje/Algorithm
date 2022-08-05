@@ -1,0 +1,51 @@
+# 브루트포스로 푼 방식
+def abj(x):
+    for i in range(x):
+        if row[x]==row[i] or abs(row[x]-row[i])==x-i:
+            return False
+    return True
+def dfs(x):
+    global result
+    if n == x:
+        result+=1
+    else:
+        for i in range(n):
+            row[x]=i
+            if abj(x):
+                dfs(x+1)
+
+n=int(input())
+row=[0]*n
+result=0
+dfs(0)
+print(result)
+
+# 백트래킹 (시간이 위 풀이보다 적게 소요됨)
+def abj(x):
+    for i in range(x):
+        if row[x]==row[i] or abs(row[x]-row[i])==x-i: #대각선을 구분하기 위한 코드
+            return False
+    return True
+
+def dfs(x):
+    global result
+    if x==N:
+        result+=1
+    else:
+        for i in range(N):
+            if visted[i]: #이전에 방문 즉, 좌우로 같은 위치에 있는 퀸이면 패스
+                continue
+            row[x]=i
+            if abj(x):
+                visted[i]=True
+                dfs(x+1)
+                visted[i]=False
+
+
+N=int(input())
+row=[0]*N
+result=0
+visted=[False for _ in range(N)]
+
+dfs(0)
+print(result)
