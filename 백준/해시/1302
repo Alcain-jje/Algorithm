@@ -1,0 +1,9 @@
+import collections
+
+dic=collections.defaultdict(int)
+for i in range(int(input())):
+    a=input()
+    dic[a]+=1
+
+li=sorted([i for i,j in dic.items() if max(dic.values())==j])
+print(li[0])
