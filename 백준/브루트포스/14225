@@ -1,0 +1,46 @@
+
+# 1번째 풀이
+from itertools import combinations
+n=int(input())
+li=list(map(int,input().split()))
+ans=[]
+for i in range(1,n+1):
+    a=combinations(li,i)
+    for j in a:
+        ans.append(sum(j))
+
+ans=sorted(set(ans))
+compare=[i for i in range(1,len(ans)+2)]
+for i in range(len(compare)):
+    if i == len(compare) - 1 and ans[i-1] == ans[-1]:
+        print(compare[i])
+        break
+    elif ans[i] != compare[i]:
+        print(compare[i])
+        break
+
+#2번째 풀이
+input()
+a=0
+for i in [*sorted(map(int,input().split()))]:
+    if a+1<i:break
+    a+=i
+
+print(a+1)
+
+
+# 3번째 풀이
+n=int(input())
+li=list(map(int,input().split()))
+visited = [0]*10000000
+
+def dfs(idx,sum):
+    if idx == n:
+        return
+    sum+=li[idx]
+    visited[sum]=1
+    dfs(idx+1,sum)
+    dfs(idx+1,sum-li[idx])
+
+dfs(0,0)
+print(visited[1:].index(0)+1)
