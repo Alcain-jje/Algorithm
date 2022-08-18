@@ -1,0 +1,13 @@
+# 구간합 풀이 (누적합)
+import sys
+input= sys.stdin.readline
+n,m=map(int,input().split())
+li=list(map(int,input().split()))
+
+dap=[0]
+for i in range(n):
+    dap.append(dap[-1]+li[i])
+
+for j in range(m):
+    a,b=map(int,input().split())
+    print(dap[b]-dap[a-1])
