@@ -1,0 +1,27 @@
+def calc(rank,n,expression):
+    if n==2:
+        return str(eval(expression))
+    if rank[n] == '*':
+        res=eval('*'.join([calc(rank,n+1,e) for e in expression.split('*')]))
+    if rank[n] == '+':
+        res = eval('+'.join([calc(rank, n + 1, e) for e in expression.split('+')]))
+    if rank[n] == '-':
+        res = eval('-'.join([calc(rank, n + 1, e) for e in expression.split('-')]))
+    return str(res)
+
+def solution(expression):
+    answer=0
+    ranked=[('*', '-', '+'),
+        ('*', '+', '-'),
+        ('+', '*', '-'),
+        ('+', '-', '*'),
+        ('-', '*', '+'),
+        ('-', '+', '*')]
+    for rank in ranked:
+        res=int(calc(rank,0,expression))
+        answer=max(answer,abs(res))
+    return answer
+
+
+strr ="100-200*300-500+20"
+print(solution(strr))
