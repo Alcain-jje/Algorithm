@@ -1,0 +1,15 @@
+a=input()
+str=""
+for i in a:
+    if i == " ":
+        str+=i
+    elif not i.isdigit():
+        if 78<=ord(i)<=90 or 110<=ord(i)<=122:
+            l=ord(i)-13
+            str+=chr(l)
+        else:
+            l = ord(i) + 13
+            str += chr(l)
+    else:
+        str+=i
+print(str)
